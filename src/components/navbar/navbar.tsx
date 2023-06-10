@@ -1,22 +1,25 @@
-import React from "react";
-import { BrowserRouter, Route, Link } from "react-router-dom";
 
-function Navbar(){
-    return (
-        <nav>
-            <ul>
-                <li>
-                <Link to="/">Home</Link>
-                </li>
-                <li>
-                <Link to="/blogs">Blogs</Link>
-                </li>
-                <li>
-                <Link to="/contact">Contact</Link>
-                </li>
-            </ul>
-        </nav>
-    )
-}
-
-export default Navbar
+// export default Navbar
+import './navbar.css'
+import React from "react"
+import { Link } from 'react-router-dom'
+const Navbar = () => {
+  return (
+    <div className="flex justify-between px-10 py-[10px]">
+        <div className='flex items-center gap-10'>
+            <img 
+                src='data:image/jpeg;base64,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'
+                className='h-80px' width={100}
+            />
+            <Link to='/'>Home</Link>
+            <Link to='/news'>news</Link>
+            woi
+        </div>
+        <div className='flex gap-5 items-center'>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
+        </div>
+    </div>
+  );
+};
+export default Navbar;
