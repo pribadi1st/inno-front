@@ -1,7 +1,44 @@
-const Register = () => {
+import {Link} from 'react-router-dom'
+const Register = ()=> {
     return (
-        <div>
-            Register
+        <div className="flex justify-center w-full items-center align-center h-[100vh]">
+            <form className="bg-white rounded px-8 pt-6 pb-8 mb-4 w-[500px]">
+                <div className="mb-4">
+                    <label className="block text-gray-700 text-sm font-bold mb-2">
+                        Full name
+                    </label>
+                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-gray-700 text-sm font-bold mb-2">
+                        Username
+                    </label>
+                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" />
+                </div>
+                <div className="mb-6">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" >
+                        Password
+                    </label>
+                    <input className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" />
+                    <p className="text-red-500 text-xs italic">Please choose a password.</p>
+                </div>
+                <div className="flex items-center justify-between">
+                    <div className="flex gap-[5px]">
+                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                            Register
+                        </button>
+                        <Link to={'/login'}>
+                            <button className="text-blue-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                                Login
+                            </button>
+                        </Link>
+                    </div>
+                    
+                    <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+                        Forgot Password?
+                    </a>
+                </div>
+            </form>
         </div>
     )
 }
