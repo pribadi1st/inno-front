@@ -42,7 +42,6 @@ const Login = ()=> {
     return (
         <div className="flex justify-center w-full items-center align-center h-[100vh]">
             <form className="bg-white rounded px-8 pt-6 pb-8 mb-4 w-[500px]">
-                {user}
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2">
                         Email
