@@ -7,20 +7,23 @@ import Navbar from './components/navbar/navbar';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './store/store';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    
-    <Router>
-      <Provider store={store}>
-        <Navbar />
-        <App />
-      </Provider>
-    </Router>
-    
+    <QueryClientProvider client={queryClient}>    
+      <Router>
+        <Provider store={store}>
+          <Navbar />
+          <App />
+        </Provider>
+      </Router>
+    </QueryClientProvider>
   </React.StrictMode>
 );
 
