@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import service from './service'
 import { useDispatch } from 'react-redux'
 import { setUser, setToken } from '../../store/action'
@@ -28,7 +28,7 @@ const Login = ()=> {
         setLoginLoading(true)
         const { data: {status,data, message } } = await service.fetchLogin(email, password)
         console.log(data, message, status)
-        if(status !== 200) {            
+        if(status !== 200) {          
             if(hasEmailOrPasswordError(message))
                 setErrorStatus(message?.email[0] ?? message?.password[0])
             else

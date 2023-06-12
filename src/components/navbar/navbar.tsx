@@ -1,9 +1,33 @@
 
-// export default Navbar
-import './navbar.css'
 import React from "react"
 import { Link } from 'react-router-dom'
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { doLogout } from "../../store/action";
+
+const Logout = () => {
+  const dispatch = useDispatch()
+  const handleLogout = () => {
+    dispatch(doLogout())
+  }
+  return (
+    <>
+      <Link to="/login" onClick={handleLogout}>Logout</Link>
+    </>
+  )
+}
+
+const nonLogin = () => {
+  return (
+    <>
+      <Link to="/login">Login</Link>
+      <Link to="/register">Register</Link>
+    </>
+  )
+}
 const Navbar = () => {
+  const user = useSelector((state: any) => state.user);
+  const dispatch = useDispatch()
   return (
     <div className="flex justify-between px-10 py-[10px]">
         <div className='flex items-center gap-10'>
@@ -15,8 +39,9 @@ const Navbar = () => {
             <Link to='/news'>news</Link>
         </div>
         <div className='flex gap-5 items-center'>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
+            {user ? (
+              <Logout />
+            ) : nonLogin()}
         </div>
     </div>
   );

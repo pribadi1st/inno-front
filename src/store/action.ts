@@ -1,5 +1,11 @@
 import IUser from "../type/user"
 
+export const doLogout = () => {
+    return {
+        type: 'LOGOUT'
+    }
+}
+
 export const setUser = (user: IUser) => {
     return {
         type: 'SET_USER',
